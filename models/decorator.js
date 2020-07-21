@@ -15,7 +15,7 @@ Decorator.prototype.totalLitres = function() {
 };
 
 Decorator.prototype.checkRoom = function(room) {
-    if (room.area >= this.totalLitres()) {
+    if (room.area <= this.totalLitres()) {
         return true;
     } else {
         return false;
