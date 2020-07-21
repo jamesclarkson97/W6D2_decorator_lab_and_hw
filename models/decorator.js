@@ -25,18 +25,25 @@ Decorator.prototype.checkRoom = function(room) {
 Decorator.prototype.paintRoom = function(room) {
     if (this.checkRoom(room) === true) {
         room.painted = true;
-        this.removeStock(room)
+        this.reduceLitres(room)
         return room.painted;
     };
 };
 
-Decorator.prototype.removeStock = function(room) {
-    // this.stock.litres.sort((a, b) => a - b)
+Decorator.prototype.reduceLitres = function(room) {    
     for (var paint of this.stock) {
         if (paint.litres >= room.area) {
-            this.stock.pop(paint);
+            paint.litres -= room.area;
+            if (paint.litres = 0) {
+                paint.removeStock(paint);
+            };
+            return this.totalLitres()
         };
     };
+};
+
+Decorator.prototype.removeStock = function(paint) {
+    this.stock.splice(paint, 1);
 };
 
 module.exports = Decorator;

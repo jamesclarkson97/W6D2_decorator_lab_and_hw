@@ -13,7 +13,7 @@ describe('Decorator', function() {
     beforeEach(function() {
         decorator = new Decorator();
         paint = new Paint(10);
-        paint2 = new Paint(15);
+        paint2 = new Paint(5);
         room = new Room(10);
     });
 
@@ -32,7 +32,7 @@ describe('Decorator', function() {
         decorator.addPaint(paint);
         decorator.addPaint(paint2);
         const actual = decorator.totalLitres();
-        assert.equal(actual, 25)
+        assert.equal(actual, 15)
     });
 
     it('should be able to calculate if it can paint a room', function() {
@@ -52,6 +52,14 @@ describe('Decorator', function() {
         decorator.addPaint(paint2);
         decorator.paintRoom(room);
         const actual = decorator.totalLitres();
-        assert.equal(actual, 10);
+        assert.equal(actual, 5);
+    })
+
+    it('should be able to reduce the cans of paint in storage', function() {
+        decorator.addPaint(paint);
+        decorator.addPaint(paint2);
+        decorator.paintRoom(room);
+        const actual = decorator.stock.length;
+        assert.equal(actual, 1);
     })
 });
