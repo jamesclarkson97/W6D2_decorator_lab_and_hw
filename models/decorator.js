@@ -22,4 +22,12 @@ Decorator.prototype.checkRoom = function(room) {
     };
 };
 
+Decorator.prototype.paintRoom = function(room) {
+    if (this.checkRoom(room) === true) {
+        room.painted = true;
+        return room.painted;
+    };
+    
+};
+
 module.exports = Decorator;

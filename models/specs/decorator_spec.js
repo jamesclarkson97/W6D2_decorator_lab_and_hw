@@ -39,5 +39,11 @@ describe('Decorator', function() {
         decorator.addPaint(paint);
         const actual = decorator.checkRoom(room);
         assert.equal(actual, true);
-    })
+    });
+
+    it('should be able to paint a room', function() {
+        decorator.addPaint(paint);
+        const actual = decorator.paintRoom(room);
+        assert.equal(actual, true);
+    });
 });
