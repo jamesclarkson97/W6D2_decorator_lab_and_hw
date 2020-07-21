@@ -31,8 +31,13 @@ describe('Decorator', function() {
     it('should be able to calculate total litres paint in stock', function() {
         decorator.addPaint(paint);
         decorator.addPaint(paint2);
-        const actual = decorator.totalLitres()
+        const actual = decorator.totalLitres();
         assert.equal(actual, 25)
     });
 
+    it('should be able to calculate if it can paint a room', function() {
+        decorator.addPaint(paint);
+        const actual = decorator.checkRoom(room);
+        assert.equal(actual, true);
+    })
 });
