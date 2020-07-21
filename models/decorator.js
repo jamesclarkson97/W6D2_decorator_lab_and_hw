@@ -25,9 +25,18 @@ Decorator.prototype.checkRoom = function(room) {
 Decorator.prototype.paintRoom = function(room) {
     if (this.checkRoom(room) === true) {
         room.painted = true;
+        this.removeStock(room)
         return room.painted;
     };
-    
+};
+
+Decorator.prototype.removeStock = function(room) {
+    // this.stock.litres.sort((a, b) => a - b)
+    for (var paint of this.stock) {
+        if (paint.litres >= room.area) {
+            this.stock.pop(paint);
+        };
+    };
 };
 
 module.exports = Decorator;

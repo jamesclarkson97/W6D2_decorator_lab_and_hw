@@ -46,4 +46,12 @@ describe('Decorator', function() {
         const actual = decorator.paintRoom(room);
         assert.equal(actual, true);
     });
+
+    it('should be able to decrease the amount of paint in storage', function() {
+        decorator.addPaint(paint);
+        decorator.addPaint(paint2);
+        decorator.paintRoom(room);
+        const actual = decorator.totalLitres();
+        assert.equal(actual, 10);
+    })
 });
